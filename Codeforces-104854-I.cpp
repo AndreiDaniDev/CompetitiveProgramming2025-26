@@ -48,6 +48,14 @@ int check(vector <pii> &obj){
     return 1;
 }
 
+int checkok(){
+    for(int i = 1; i <= n; i++){
+        if(target[i] != a[i] && target[i] != valmax)
+            return 0;
+    }
+    return 1;
+}
+
 int main(){
 
     in.tie(NULL) -> sync_with_stdio(false); out.tie(NULL);
@@ -68,7 +76,7 @@ int main(){
         }
     }
 
-    for(int itq = 1; itq <= k + 1; itq++){
+    for(int itq = 1; itq <= k; itq++){
 
         int flagg = 0;
 
@@ -84,9 +92,10 @@ int main(){
         }
 
         if(!flagg){ break; }
+        if(!unqset){ break; }
     }
 
-    if(unqset){
+    if(!checkok()){
         out<<"IMPOSSIBLE\n";
         return 0;
     }
